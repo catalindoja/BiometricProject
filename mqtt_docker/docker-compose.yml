@@ -1,0 +1,15 @@
+version: "3"
+services:
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: mosquitto
+    environment:
+      - TZ=Europe/Madrid    
+    volumes:
+      - /home/joel/Udl_Informatica/Master/EMBEDDED-Systems/docker/volumes/mosquitto/config:/mosquitto/config
+      - /home/joel/Udl_Informatica/Master/EMBEDDED-Systems/docker/volumes/mosquitto/data:/mosquitto/data
+      - /home/joel/Udl_Informatica/Master/EMBEDDED-Systems/docker/volumes/mosquitto/log:/mosquitto/log
+    ports:
+      - "0.0.0.0:1883:1883"
+      - "0.0.0.0:9001:9001"
+
