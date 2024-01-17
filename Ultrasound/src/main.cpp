@@ -80,7 +80,7 @@ void loop()
   d = t / 59;              // escalamos el tiempo a una distancia en cm
 
   String text = String(d);
-  sensor.addField("humidity", d);
+  sensor.addField("ultrasoundField", d);
   client.publish("esp01/ultrasound", text.c_str());
   Serial.println("Sended messaged to: esp01/ultrasound");
 
@@ -96,8 +96,6 @@ void loop()
   {
     Serial.print("InfluxDB write failed: ");
     Serial.println(influxClient.getLastErrorMessage());
-  } else {
-    Serial.println("InfluxDB write success");
   }
 
   delay(500);
